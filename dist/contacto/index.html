@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Contacto | PSA</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/css/estilos.css" rel="stylesheet">
+  <link rel="icon" href="/static/img/logo.png">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-psa sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+       <img src="/static/img/logo-blanco-112.png"
+       srcset="/static/img/logo-blanco-112.png 1x, /static/img/logo-blanco-168.png 1.5x, /static/img/logo-blanco.png 3x"
+       alt="Purificadores PSA" class="logo-psa" width="56" height="56">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="/agua-y-salud/">Agua y salud</a></li>
+        <li class="nav-item"><a class="nav-link" href="/nuestros-equipos/">Nuestros equipos</a></li>
+        <li class="nav-item"><a class="nav-link" href="/preguntas-frecuentes/">Preguntas frecuentes</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contacto/">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main>
+  
+  
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-7">
+      <h1 class="mb-3">Hablá con un asesor</h1>
+      <p class="mb-4">Completá tus datos y se abrirá WhatsApp con tu consulta lista para enviar.</p>
+
+      
+      <form id="form-contacto">
+        <div class="mb-3">
+          <label class="form-label" for="nombre">Nombre</label>
+          <input type="text" id="nombre" class="form-control" placeholder="Tu nombre" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="telefono">Teléfono (opcional)</label>
+          <input type="text" id="telefono" class="form-control" placeholder="Para que podamos llamarte">
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="mensaje">Consulta</label>
+          <textarea id="mensaje" class="form-control" rows="5" placeholder="¿En qué podemos ayudarte?" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-psa">Enviar por WhatsApp</button>
+      </form>
+
+      <script>
+        document.getElementById('form-contacto').addEventListener('submit', function (e) {
+          e.preventDefault();
+          var nombre = document.getElementById('nombre').value.trim();
+          var telefono = document.getElementById('telefono').value.trim();
+          var mensaje = document.getElementById('mensaje').value.trim();
+          var texto = 'Hola! Soy ' + nombre + '. ' + mensaje;
+          if (telefono) { texto += ' Mi teléfono: ' + telefono; }
+          window.open('https://wa.me/5492920628459?text=' + encodeURIComponent(texto), '_blank');
+        });
+      </script>
+      
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer class="footer-psa py-4">
+  <div class="container text-center">
+    <img src="/static/img/logo-blanco-112.png"
+         srcset="/static/img/logo-blanco-112.png 1x, /static/img/logo-blanco-168.png 2x"
+         alt="Purificadores PSA" class="logo-footer mb-2" width="64" height="64">
+    <div>
+      <small class="opacity-75">
+        © 2026 Purificadores PSA. La información de este sitio es orientativa y no reemplaza la consulta con un profesional.
+      </small>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5492920628459?text=Hola%21%20Quiero%20informaci%C3%B3n%20sobre%20los%20purificadores%20de%20agua%20PSA." class="whatsapp-flotante" target="_blank" rel="noopener"
+   aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor" aria-hidden="true">
+    <path d="M16.004 3C9.376 3 4 8.373 4 15c0 2.358.68 4.557 1.855 6.416L4 29l7.77-1.826A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm0 21.8a9.77 9.77 0 0 1-4.98-1.36l-.357-.212-4.612 1.084 1.1-4.5-.233-.37A9.77 9.77 0 0 1 6.2 15c0-5.41 4.4-9.8 9.804-9.8 5.4 0 9.796 4.39 9.796 9.8s-4.396 9.8-9.796 9.8zm5.37-7.34c-.294-.147-1.74-.858-2.01-.956-.27-.098-.466-.147-.662.147-.196.294-.76.956-.932 1.153-.172.196-.343.22-.637.074-.294-.147-1.242-.458-2.366-1.46-.874-.78-1.465-1.744-1.637-2.038-.172-.294-.018-.453.13-.6.132-.132.294-.343.44-.515.148-.172.196-.294.294-.49.098-.196.05-.368-.025-.515-.074-.147-.662-1.595-.907-2.184-.239-.574-.482-.496-.662-.505l-.564-.01c-.196 0-.515.074-.785.368-.27.294-1.03 1.007-1.03 2.455s1.055 2.848 1.202 3.044c.147.196 2.077 3.172 5.032 4.45.703.303 1.252.484 1.68.62.706.224 1.349.192 1.857.117.566-.085 1.74-.711 1.986-1.398.245-.686.245-1.275.172-1.398-.074-.123-.27-.196-.564-.343z"/>
+  </svg>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

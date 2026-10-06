@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block contenido %}
+
 <section class="hero text-center">
   <div class="container">
     <h1 class="display-4 fw-bold">Agua pura para cuidar a tu familia</h1>
@@ -8,4 +9,34 @@
     <a href="{% url 'core:equipos' %}" class="btn btn-psa btn-lg">Ver nuestros equipos</a>
   </div>
 </section>
+
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-5">¿Por qué purificar el agua?</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="tarjeta-psa text-center h-100">
+          <div class="icono-psa">💧</div>
+          <h5>Mejor sabor y olor</h5>
+          <p class="mb-0">Un agua más agradable para tomar y cocinar todos los días.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="tarjeta-psa text-center h-100">
+          <div class="icono-psa">🛡️</div>
+          <h5>Más tranquilidad</h5>
+          <p class="mb-0">Ayuda a reducir impurezas del agua que llega a tu casa.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="tarjeta-psa text-center h-100">
+          <div class="icono-psa">🏠</div>
+          <h5>Comodidad en casa</h5>
+          <p class="mb-0">Agua lista las 24 horas, sin cargar ni almacenar botellones.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 {% endblock %}

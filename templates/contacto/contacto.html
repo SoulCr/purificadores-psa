@@ -4,32 +4,43 @@
 
 {% block contenido %}
 <div class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-7">
-            <h1 class="mb-3">Hablá con un asesor</h1>
-            <p class="mb-4">Dejanos tu consulta y te contamos todo sobre los purificadores PSA.</p>
+  <div class="row justify-content-center">
+    <div class="col-lg-7">
+      <h1 class="mb-3">Hablá con un asesor</h1>
+      <p class="mb-4">Completá tus datos y se abrirá WhatsApp con tu consulta lista para enviar.</p>
 
-            <form method="post">
-                {% csrf_token %}
-                {% for campo in form %}
-                <div class="mb-3">
-                    <label class="form-label" for="{{ campo.id_for_label }}">{{ campo.label }}</label>
-                    {{ campo }}
-                    {% for error in campo.errors %}
-                    <div class="text-danger small">{{ error }}</div>
-                    {% endfor %}
-                </div>
-                {% endfor %}
-                <button type="submit" class="btn btn-psa">Enviar consulta</button>
-            </form>
-            {% if whatsapp_url %}
-            <hr class="my-4">
-            <p class="mb-2">¿Preferís hablar directamente?</p>
-            <a href="{{ whatsapp_url }}" class="btn btn-success" target="_blank" rel="noopener">
-                Escribinos por WhatsApp
-            </a>
-            {% endif %}
+      {% if whatsapp_numero %}
+      <form id="form-contacto">
+        <div class="mb-3">
+          <label class="form-label" for="nombre">Nombre</label>
+          <input type="text" id="nombre" class="form-control" placeholder="Tu nombre" required>
         </div>
+        <div class="mb-3">
+          <label class="form-label" for="telefono">Teléfono (opcional)</label>
+          <input type="text" id="telefono" class="form-control" placeholder="Para que podamos llamarte">
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="mensaje">Consulta</label>
+          <textarea id="mensaje" class="form-control" rows="5" placeholder="¿En qué podemos ayudarte?" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-psa">Enviar por WhatsApp</button>
+      </form>
+
+      <script>
+        document.getElementById('form-contacto').addEventListener('submit', function (e) {
+          e.preventDefault();
+          var nombre = document.getElementById('nombre').value.trim();
+          var telefono = document.getElementById('telefono').value.trim();
+          var mensaje = document.getElementById('mensaje').value.trim();
+          var texto = 'Hola! Soy ' + nombre + '. ' + mensaje;
+          if (telefono) { texto += ' Mi teléfono: ' + telefono; }
+          window.open('https://wa.me/{{ whatsapp_numero }}?text=' + encodeURIComponent(texto), '_blank');
+        });
+      </script>
+      {% else %}
+      <p class="text-muted">El contacto no está disponible por el momento.</p>
+      {% endif %}
     </div>
+  </div>
 </div>
 {% endblock %}
