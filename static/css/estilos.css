@@ -1,0 +1,22 @@
+:root {
+  --psa-azul: #0b5d8a;
+  --psa-verde: #2a9d8f;
+  --psa-celeste: #e8f4fa;
+}
+
+body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: #243b4a; }
+
+.navbar-psa { background-color: var(--psa-azul); }
+
+.hero {
+  background: linear-gradient(135deg, var(--psa-azul), var(--psa-verde));
+  color: #fff;
+  padding: 6rem 0;
+}
+
+.btn-psa { background-color: var(--psa-verde); color: #fff; border: 0; padding: .8rem 1.8rem; }
+.btn-psa:hover { background-color: #238177; color: #fff; }
+
+.seccion-clara { background-color: var(--psa-celeste); padding: 4rem 0; }
+
+.footer-psa { background-color: var(--psa-azul); color: #fff; }
