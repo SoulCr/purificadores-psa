@@ -4,25 +4,32 @@
 
 {% block contenido %}
 <div class="container py-5">
-  <div class="row justify-content-center">
-    <div class="col-lg-7">
-      <h1 class="mb-3">Hablá con un asesor</h1>
-      <p class="mb-4">Dejanos tu consulta y te contamos todo sobre los purificadores PSA.</p>
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <h1 class="mb-3">Hablá con un asesor</h1>
+            <p class="mb-4">Dejanos tu consulta y te contamos todo sobre los purificadores PSA.</p>
 
-      <form method="post">
-        {% csrf_token %}
-        {% for campo in form %}
-          <div class="mb-3">
-            <label class="form-label" for="{{ campo.id_for_label }}">{{ campo.label }}</label>
-            {{ campo }}
-            {% for error in campo.errors %}
-              <div class="text-danger small">{{ error }}</div>
-            {% endfor %}
-          </div>
-        {% endfor %}
-        <button type="submit" class="btn btn-psa">Enviar consulta</button>
-      </form>
+            <form method="post">
+                {% csrf_token %}
+                {% for campo in form %}
+                <div class="mb-3">
+                    <label class="form-label" for="{{ campo.id_for_label }}">{{ campo.label }}</label>
+                    {{ campo }}
+                    {% for error in campo.errors %}
+                    <div class="text-danger small">{{ error }}</div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+                <button type="submit" class="btn btn-psa">Enviar consulta</button>
+            </form>
+            {% if whatsapp_url %}
+            <hr class="my-4">
+            <p class="mb-2">¿Preferís hablar directamente?</p>
+            <a href="{{ whatsapp_url }}" class="btn btn-success" target="_blank" rel="noopener">
+                Escribinos por WhatsApp
+            </a>
+            {% endif %}
+        </div>
     </div>
-  </div>
 </div>
 {% endblock %}
