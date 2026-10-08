@@ -1,10 +1,38 @@
 {% extends 'base.html' %}
 
-{% block title %}Preguntas y Respuestas| PSA{% endblock %}
+{% block title %}Preguntas frecuentes | PSA{% endblock %}
 
 {% block contenido %}
-<div class="container py-5">
-  <h1>Preguntas Frecuentes</h1>
-  <p>Contenido en preparación.</p>
-</div>
+<section class="seccion-clara text-center">
+  <div class="container">
+    <h1 class="fw-bold">Preguntas frecuentes</h1>
+    <p class="lead mb-0">Respuestas rápidas sobre los purificadores PSA.</p>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="accordion" id="faq">
+          {% for p in preguntas %}
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button {% if not forloop.first %}collapsed{% endif %}" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#p{{ forloop.counter }}">
+                {{ p.pregunta }}
+              </button>
+            </h2>
+            <div id="p{{ forloop.counter }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}"
+                 data-bs-parent="#faq">
+              <div class="accordion-body">{{ p.respuesta }}</div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <p class="text-center mt-4 mb-0">¿Tenés otra duda? <a href="{% url 'contacto:contacto' %}">Escribinos</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}

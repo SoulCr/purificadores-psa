@@ -3,8 +3,81 @@
 {% block title %}Agua y salud | PSA{% endblock %}
 
 {% block contenido %}
-<div class="container py-5">
-  <h1>Agua y salud</h1>
-  <p>Contenido en preparación.</p>
-</div>
+<section class="seccion-clara text-center">
+  <div class="container">
+    <h1 class="fw-bold">Agua y salud</h1>
+    <p class="lead mb-0">Qué hay en el agua de tu canilla y cómo ayuda un purificador.</p>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <h2 class="fw-bold mb-4">Qué puede haber en el agua de red</h2>
+    <p>El agua de red es potable, pero su composición cambia según la zona, la fuente y el estado de las cañerías.</p>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="tarjeta-psa h-100">
+          <h5>Cloro y trihalometanos</h5>
+          <p class="mb-0">El cloro es el desinfectante que hace que el agua llegue segura a tu casa, y es fundamental. Al reaccionar con materia orgánica natural genera subproductos, como los trihalometanos (THM). La OMS recomienda mantenerlos lo más bajos posible sin comprometer nunca la desinfección. Un purificador actúa en tu canilla, después de la red.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="tarjeta-psa h-100">
+          <h5>Dureza y sarro</h5>
+          <p class="mb-0">Se debe al calcio y, en menor medida, al magnesio disueltos. La OMS no fija un valor de referencia sanitario para la dureza: su efecto más visible es el sarro en canillas, ollas, termotanques y electrodomésticos.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="tarjeta-psa h-100">
+          <h5>Plomo y otros metales</h5>
+          <p class="mb-0">El plomo suele llegar al agua por las cañerías, conexiones y accesorios, más que desde la fuente. Hervir el agua no lo elimina. Si tenés dudas, un análisis de laboratorio es la única forma de saber qué hay en tu agua.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="tarjeta-psa h-100">
+          <h5>Arsénico</h5>
+          <p class="mb-0">Está presente de forma natural en las aguas subterráneas de varios países. La OMS recomienda un máximo de 10 µg/L en el agua de consumo. Si tu agua viene de pozo o de una zona con este problema, hacé un análisis y consultá qué equipo corresponde.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="tarjeta-psa h-100">
+          <h5>Sedimentos</h5>
+          <p class="mb-0">Partículas que pueden dar turbiedad al agua y que un prefiltro ayuda a retener.</p>
+        </div>
+      </div>
+    </div>
+    <p class="small text-muted mt-4 mb-0">Fuentes: Organización Mundial de la Salud (Guías para la calidad del agua potable) y Resolución Conjunta 34/2019 (Boletín Oficial de la República Argentina).</p>
+  </div>
+</section>
+
+<section class="seccion-clara">
+  <div class="container">
+    <h2 class="fw-bold mb-3">Qué hace un purificador</h2>
+    <p>Cada modelo trabaja con distintos medios activos (carbón activado, resinas, membranas) y está pensado para reducir ciertas sustancias. Por eso no todos los equipos sirven para lo mismo: lo importante es elegir según el problema de tu agua.</p>
+    <p class="mb-0">Los equipos de la línea hogar se conectan a la canilla y purifican el agua en el momento en que la usás, sin tanques ni botellones.</p>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="tarjeta-psa h-100">
+          <h4>Importante: solo con agua potable</h4>
+          <p class="mb-0">Los purificadores PSA están diseñados para tratar agua potable de red. No convierten en segura el agua de pozo o de fuentes de dudosa potabilidad. Ante cualquier duda sobre el origen o la calidad de tu agua, hacé un análisis de laboratorio.</p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="tarjeta-psa h-100">
+          <h4>El mantenimiento importa</h4>
+          <p class="mb-0">El rendimiento y la vida útil dependen de la calidad del agua, de cuánto usás el equipo y de un correcto mantenimiento. Cambiar el equipo o los cartuchos a tiempo es parte de su buen funcionamiento.</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-5">
+      <a href="{% url 'core:equipos' %}" class="btn btn-psa btn-lg">Ver los equipos</a>
+    </div>
+    <p class="small text-muted text-center mt-4 mb-0">La información de esta página es orientativa y no reemplaza el análisis del agua ni la consulta con un profesional de la salud.</p>
+  </div>
+</section>
 {% endblock %}

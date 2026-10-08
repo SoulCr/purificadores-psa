@@ -1,10 +1,42 @@
 {% extends 'base.html' %}
 
-{% block title %}Equipos| PSA{% endblock %}
+{% block title %}Nuestros equipos | PSA{% endblock %}
 
 {% block contenido %}
-<div class="container py-5">
-  <h1>Equipos</h1>
-  <p>Contenido en preparación.</p>
+<section class="seccion-clara text-center">
+  <div class="container">
+    <h1 class="fw-bold">Nuestros equipos</h1>
+    <p class="lead mb-0">Purificadores PSA para cada necesidad y cada tipo de agua.</p>
+  </div>
+</section>
+
+{% for cat in categorias %}
+<section class="py-5">
+  <div class="container">
+    <h2 class="fw-bold">{{ cat.titulo }}</h2>
+    <p class="text-muted mb-4">{{ cat.descripcion }}</p>
+    <div class="row g-4">
+      {% for e in cat.equipos %}
+      <div class="col-md-6 col-lg-4">
+        <div class="tarjeta-psa h-100 d-flex flex-column">
+          <h5 class="mb-1">{{ e.nombre }}</h5>
+          <p class="small text-muted">{{ e.para }}</p>
+          <p>{{ e.descripcion }}</p>
+          {% if e.datos %}
+          <ul class="list-unstyled small mb-3">
+            {% for d in e.datos %}<li class="mb-1">✔ {{ d }}</li>{% endfor %}
+          </ul>
+          {% endif %}
+          <a href="{% url 'contacto:contacto' %}" class="btn btn-psa btn-sm mt-auto align-self-start">Consultar</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endfor %}
+
+<div class="container pb-4">
+  <p class="small text-muted mb-0">El rendimiento y la vida útil de cada equipo dependen de la calidad del agua, la frecuencia de uso y el mantenimiento. Consultá con un asesor cuál es el indicado para tu caso.</p>
 </div>
 {% endblock %}
